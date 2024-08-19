@@ -4,7 +4,7 @@ import fetcher from "@api/index";
 import Header from "@components/layout/Header";
 import Loading from "@components/common/Loading";
 import { Data } from "@web-types/common";
-import Body from "@components/layout/Body";
+import Main from "@components/layout/Body";
 
 function App() {
   const { data, error, isLoading } = useSWR<Data>(DATA_URL, fetcher);
@@ -13,11 +13,10 @@ function App() {
   if (isLoading) return <Loading />;
 
   return (
-    <main className="bg-white h-screen px-2">
+    <>
       <Header />
-      <Body data={data} />
-      <div>{JSON.stringify(data)}</div>
-    </main>
+      <Main data={data} />
+    </>
   );
 }
 

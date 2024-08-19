@@ -29,10 +29,11 @@ export default function Header() {
   const [year, setYear] = useState<string>("");
 
   return (
-    <header className="p-4 flex flex-col justify-center items-center w-full">
+    <header className="p-4 flex flex-col gap-2 justify-center items-center w-full">
       <h1 className="text-3xl font-semibold">Video Browser</h1>
+      <div />
       <div className="flex gap-2">
-        <FormControl sx={{ m: 1, width: 300 }}>
+        <FormControl>
           <TextField
             id="outlined-basic"
             label="Search video"
@@ -42,7 +43,7 @@ export default function Header() {
             }}
           />
         </FormControl>
-        <FormControl sx={{ m: 1, width: 300 }}>
+        <FormControl>
           <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -59,9 +60,10 @@ export default function Header() {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
-        <FormControl sx={{ m: 1, width: 300 }}>
+        <FormControl>
           <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
           <Select
+            className="min-w-24"
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             multiple

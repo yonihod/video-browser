@@ -5,16 +5,16 @@ export default function Video({
   artist,
   title,
   release_year,
-  genre_id,
   image_url,
 }: VideoType) {
   return (
-    <div key={id} className="bg-slate-400 p-4 rounded-lg text-black">
-      <div className="text-2xl">{artist}</div>
-      <div>{title}</div>
-      <div>{release_year}</div>
-      <div>{genre_id}</div>
-      <img src={image_url} alt={title} />
+    <div key={id} className="bg-pipi text-black">
+      <img src={image_url} className="w-full" alt={title} />
+      <div className="p-1 flex flex-col items-center align-middle">
+        <div>{artist}</div>
+        <div>{title}</div>
+        <div>{release_year}</div>
+      </div>
     </div>
   );
 }

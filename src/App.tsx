@@ -13,7 +13,7 @@ function App() {
   if (isLoading) return <Loading />;
 
   return (
-    <main className="bg-slate-300 h-screen">
+    <main className="bg-white h-screen px-2">
       <Header />
       <Body data={data} />
       <div>{JSON.stringify(data)}</div>

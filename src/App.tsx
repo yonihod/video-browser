@@ -5,18 +5,22 @@ import Header from "@components/layout/Header";
 import Loading from "@components/common/Loading";
 import { Data } from "@web-types/common";
 import Main from "@components/layout/Body";
+import { DataContext } from "./context";
+import useData from "@hooks/useData";
 
 function App() {
   const { data, error, isLoading } = useSWR<Data>(DATA_URL, fetcher);
+  const dataProps = useData(data);
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>No data</div>;
   if (isLoading) return <Loading />;
+  console.log("dataProps", dataProps);
 
   return (
-    <>
-      <Header />
-      <Main data={data} />
-    </>
+    <DataContext.Provider value={data}>
+      <Header {...dataProps} />
+      <Main {...dataProps} />
+    </DataContext.Provider>
   );
 }
 

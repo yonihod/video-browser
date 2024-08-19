@@ -1,11 +1,12 @@
 import Video from "@components/common/Video";
-import { Data } from "@web-types/common";
+import useData from "@hooks/useData";
 
-export default function Main({ data }: { data: Data }) {
+type MainProps = ReturnType<typeof useData>;
+export default function Main({ videos }: MainProps) {
   return (
     <main className="bg-white h-screen px-2">
       <div className="grid grid-cols-3 gap-2">
-        {data.videos.map(({ id, ...video }) => (
+        {videos.map(({ id, ...video }) => (
           <Video key={id} {...video} />
         ))}
       </div>

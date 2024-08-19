@@ -11,6 +11,8 @@ export default defineConfig({
       "@constants": "/src/constants.ts",
       "@web-types": "/src/web-types",
       "@api": "/src/api",
+      "@context": "/src/context",
+      "@hooks": "/src/hooks",
     },
   },
 });

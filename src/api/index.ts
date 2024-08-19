@@ -1,15 +1,10 @@
-import { DATA_URL } from "@constants";
-import { Data } from "@web-types/common";
-
 /**
- *
- * @description Fetches data from the API
- * @returns {Promise<Data>}
+ * @description SWR fetcher function
  */
-export function getData(): Promise<Data> {
-  return fetch(DATA_URL)
-    .then((response) => response.json())
-    .catch((error) => {
-      console.error(error);
-    });
+export default async function fetcher<JSON = any>(
+  input: RequestInfo,
+  init?: RequestInit
+): Promise<JSON> {
+  const res = await fetch(input, init);
+  return res.json();
 }

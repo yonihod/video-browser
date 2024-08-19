@@ -10,6 +10,7 @@ export default defineConfig({
       "@components": "/src/components",
       "@constants": "/src/constants.ts",
       "@web-types": "/src/web-types",
+      "@api": "/src/api",
     },
   },
 });

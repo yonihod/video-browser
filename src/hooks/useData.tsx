@@ -10,7 +10,6 @@ export default function useData(data: Data = { videos: [], genres: [] }) {
   const onGenreChange = (
     genre: MultiValue<{ value: number; label: string }>
   ) => {
-    console.log("onGenreChange", genre);
     // find genre object from data.genres
     const selectedGenres = data.genres.filter((g) =>
       genre.some((selected) => selected.value === g.id)
@@ -24,7 +23,6 @@ export default function useData(data: Data = { videos: [], genres: [] }) {
       value: number;
     }>
   ) => {
-    console.log("onYearChange", year);
     if (!year) {
       return;
     }
@@ -32,7 +30,6 @@ export default function useData(data: Data = { videos: [], genres: [] }) {
   };
 
   const onFreeTextChange = (text: string) => {
-    console.log("onFreeTextChange", text);
     setFreeText(text);
   };
 
@@ -47,9 +44,7 @@ export default function useData(data: Data = { videos: [], genres: [] }) {
       fv = fv.filter((video) => video.release_year.toString() === selectedYear);
     }
     if (freeText) {
-      debugger;
       fv = fv.filter((video) => {
-        console.log("video", video);
         return (
           video.title
             .toString()
@@ -74,11 +69,6 @@ export default function useData(data: Data = { videos: [], genres: [] }) {
         self.findIndex((t) => t.label === year.label && t.value === year.value)
     );
   }, [data.videos]);
-
-  console.log("filteredVideos", {
-    length: filteredVideos.length,
-    filteredVideos,
-  });
 
   return {
     videos: filteredVideos,

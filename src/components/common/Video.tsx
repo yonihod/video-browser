@@ -7,13 +7,13 @@ export default function Video({
   image_url,
 }: Omit<VideoType, "id">) {
   return (
-    <div className="bg-pipi text-black">
+    <li className="bg-pipi text-black">
       <img src={image_url} className="w-full" alt={title} />
       <div className="p-1 flex flex-col items-center align-middle">
         <div>{artist}</div>
         <div>{title}</div>
         <div>{release_year}</div>
       </div>
-    </div>
+    </li>
   );
 }

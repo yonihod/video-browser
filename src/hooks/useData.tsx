@@ -23,10 +23,7 @@ export default function useData(data: Data = { videos: [], genres: [] }) {
       value: number;
     }>
   ) => {
-    if (!year) {
-      return;
-    }
-    setSelectedYear(year.value.toString());
+    setSelectedYear(year?.value.toString());
   };
 
   const onFreeTextChange = (text: string) => {

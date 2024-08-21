@@ -42,6 +42,8 @@ export default function Header({
         />
         <Select
           placeholder="Select by Year"
+          isClearable
+          isSearchable
           styles={{
             placeholder: (defaultStyles) => {
               return {

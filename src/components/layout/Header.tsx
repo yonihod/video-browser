@@ -1,6 +1,26 @@
 import { Input } from "@components/common/Input";
 import useData from "@hooks/useData";
-import Select from "react-select";
+import Select, { components, IndicatorSeparatorProps } from "react-select";
+
+const DropdownIndicator = (props: any) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <svg
+        className="dropdown-indicator"
+        focusable="false"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        data-testid="ArrowDropDownIcon"
+      >
+        <path d="M7 10l5 5 5-5z"></path>
+      </svg>
+    </components.DropdownIndicator>
+  );
+};
+
+const IndicatorSeparator = ({ innerProps }: any) => {
+  return null;
+};
 
 type HeaderProps = ReturnType<typeof useData>;
 export default function Header({
@@ -16,14 +36,58 @@ export default function Header({
       <div />
       <div className="flex gap-2">
         <Input
+          className="border py-2 w-48 border-[#d2d2d2] placeholder-gray-600 focus-visible:border-[#2684ff] outline-none focus-visible:border-2"
           onChange={(e) => onFreeTextChange(e.target.value)}
-          placeholder="Search"
+          placeholder="Search Video..."
         />
-        <Select options={years} onChange={onYearChange} />
         <Select
+          placeholder="Select by Year"
+          styles={{
+            placeholder: (defaultStyles) => {
+              return {
+                ...defaultStyles,
+                color: "rgb(75 85 99)",
+              };
+            },
+            control: (baseStyles) => ({
+              ...baseStyles,
+              borderRadius: 2,
+            }),
+          }}
+          classNames={{
+            control: (state) =>
+              `border rounded-sm py-2 w-48 border-[#d2d2d2] ${
+                state.isFocused ? "border-[#2684ff]" : ""
+              }`,
+          }}
+          options={years}
+          onChange={onYearChange}
+          components={{ DropdownIndicator, IndicatorSeparator }}
+        />
+        <Select
+          placeholder="Select by Genre"
           options={genres.map(({ id, name }) => ({ value: id, label: name }))}
+          classNames={{
+            control: (state) =>
+              `border rounded-sm py-2 w-48 border-[#d2d2d2] ${
+                state.isFocused ? "border-[#2684ff]" : ""
+              }`,
+          }}
+          styles={{
+            placeholder: (defaultStyles) => {
+              return {
+                ...defaultStyles,
+                color: "rgb(75 85 99)",
+              };
+            },
+            control: (baseStyles) => ({
+              ...baseStyles,
+              borderRadius: 2,
+            }),
+          }}
           isMulti
           onChange={onGenreChange}
+          components={{ DropdownIndicator, IndicatorSeparator }}
         />
       </div>
     </header>

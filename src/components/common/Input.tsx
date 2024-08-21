@@ -5,22 +5,13 @@ export const Input: React.FC<
     labelProps?: React.ComponentPropsWithoutRef<"label">;
     helperText?: string;
   }
-> = ({
-  children,
-  label,
-  labelProps,
-  error,
-  helperText,
-  className,
-  ...props
-}) => {
+> = ({ children, label, labelProps, helperText, className, ...props }) => {
   return (
     <>
       {label && <label {...labelProps}>{label}</label>}
-      <input {...props} className={`px-5 ${className} hover:border-dark`}>
+      <input {...props} className={`px-5 ${className}`}>
         {children}
       </input>
-      {error && <span className="text-dull-red"></span>}
     </>
   );
 };

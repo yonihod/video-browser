@@ -34,9 +34,9 @@ export default function Header({
     <header className="p-4 flex flex-col gap-2 justify-center items-center w-full">
       <h1 className="text-3xl font-semibold">Video Browser</h1>
       <div />
-      <div className="flex gap-2">
+      <div className="flex flex-col md:flex-row gap-2">
         <Input
-          className="border py-2 w-48 border-[#d2d2d2] placeholder-gray-600 focus-visible:border-[#2684ff] outline-none focus-visible:border-2"
+          className="border py-2 w-48 h-12 border-[#d2d2d2] placeholder-gray-600 focus-visible:border-[#2684ff] outline-none focus-visible:border-2"
           onChange={(e) => onFreeTextChange(e.target.value)}
           placeholder="Search Video..."
         />
@@ -56,7 +56,7 @@ export default function Header({
           }}
           classNames={{
             control: (state) =>
-              `border rounded-sm py-2 w-48 border-[#d2d2d2] ${
+              `border rounded-sm py-2 w-48 h-12 border-[#d2d2d2] ${
                 state.isFocused ? "border-[#2684ff]" : ""
               }`,
           }}
@@ -69,7 +69,7 @@ export default function Header({
           options={genres.map(({ id, name }) => ({ value: id, label: name }))}
           classNames={{
             control: (state) =>
-              `border rounded-sm py-2 w-48 border-[#d2d2d2] ${
+              `border rounded-sm py-2 w-48 h-12 border-[#d2d2d2] ${
                 state.isFocused ? "border-[#2684ff]" : ""
               }`,
           }}

@@ -12,9 +12,8 @@ function App() {
   const { data, error, isLoading } = useSWR<Data>(DATA_URL, fetcher);
   const dataProps = useData(data);
   if (error) return <div>Error: {error.message}</div>;
-  if (!data) return <div>No data</div>;
   if (isLoading) return <Loading />;
-  console.log("dataProps", dataProps);
+  if (!data) return <div>No data</div>;
 
   return (
     <DataContext.Provider value={data}>

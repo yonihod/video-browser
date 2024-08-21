@@ -8,7 +8,10 @@ export default function Main({ videos }: MainProps) {
 
   return (
     <main className="bg-white h-screen px-2">
-      <ul className="grid grid-cols-3 gap-2" ref={parent}>
+      <ul
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
+        ref={parent}
+      >
         {videos.map(({ id, ...video }) => (
           <Video key={id} {...video} />
         ))}

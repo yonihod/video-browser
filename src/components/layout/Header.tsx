@@ -56,7 +56,7 @@ export default function Header({
           }}
           classNames={{
             control: (state) =>
-              `border rounded-sm py-2 w-48 h-12 border-[#d2d2d2] ${
+              `border rounded-sm py-2 min-w-48 h-12 border-[#d2d2d2] ${
                 state.isFocused ? "border-[#2684ff]" : ""
               }`,
           }}

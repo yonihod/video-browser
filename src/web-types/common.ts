@@ -11,7 +11,7 @@ export interface Genre {
 export interface Video {
   id: number;
   artist: string;
-  title: any;
+  title: string;
   release_year: number;
   genre_id: number;
   image_url: string;

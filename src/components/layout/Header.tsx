@@ -1,6 +1,6 @@
 import { Input } from "@components/common/Input";
 import useData from "@hooks/useData";
-import Select, { components, IndicatorSeparatorProps } from "react-select";
+import Select, { components } from "react-select";
 
 const DropdownIndicator = (props: any) => {
   return (
@@ -18,7 +18,7 @@ const DropdownIndicator = (props: any) => {
   );
 };
 
-const IndicatorSeparator = ({ innerProps }: any) => {
+const IndicatorSeparator = () => {
   return null;
 };
 

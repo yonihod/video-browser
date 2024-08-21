@@ -3,9 +3,8 @@ export const Input: React.FC<
     error?: string;
     label?: string;
     labelProps?: React.ComponentPropsWithoutRef<"label">;
-    helperText?: string;
   }
-> = ({ children, label, labelProps, helperText, className, ...props }) => {
+> = ({ children, label, labelProps, className, ...props }) => {
   return (
     <>
       {label && <label {...labelProps}>{label}</label>}
